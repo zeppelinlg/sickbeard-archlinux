@@ -1,0 +1,11 @@
+[Unit]
+Description=SickBeard Daemon
+After=network.target
+
+[Service]
+User=sickbeard
+Group=media
+ExecStart=/usr/bin/env python2 /usr/share/sickbeard/SickBeard.py --quiet --config /etc/sickbeard.conf --datadir /var/lib/sickbeard
+
+[Install]
+WantedBy=multi-user.target

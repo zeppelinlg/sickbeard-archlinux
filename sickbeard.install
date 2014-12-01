@@ -1,0 +1,37 @@
+## arg 1:  the new package version
+post_install() {
+  groupadd sickbeard &> /dev/null
+  useradd -g sickbeard -d /var/lib/sickbeard -s /usr/bin/nologin sickbeard &> /dev/null
+  chown sickbeard\: /var/lib/sickbeard
+  chown sickbeard /etc/sickbeard.conf
+  # Create a directory in /run if it does not exist
+  if [ ! -d /run/sickbeard ]; then
+    mkdir /run/sickbeard
+    chown sickbeard\: /run/sickbeard
+    chmod 775 /run/sickbeard
+  fi
+}
+## arg 1:  the new package version
+## arg 2:  the old package version
+post_upgrade() {
+  chown sickbead\: /var/lib/sickbeard
+
+  # Create a directory in /run if it does not exist
+  if [ ! -d /run/sickbeard ]; then
+    mkdir /run/sickbeard
+    chown sickbeard\: /run/sickbeard
+    chmod 775 /run/sickbeard
+  fi
+
+}
+
+## arg 1:  the old package version
+pre_remove() {
+ userdel sickbeard &> /dev/null
+ groupdel sickbeard &> /dev/null
+}
+
+post_remove() {
+  echo 'Some files have not been removed because they are created by sickbeard itself, e.g. the show database.'
+}
+
