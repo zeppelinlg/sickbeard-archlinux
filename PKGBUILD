@@ -14,7 +14,7 @@ depends=('python2' 'python2-cheetah')
 makedepends=('git')
 optdepends=('sabnzbd: NZB downloader'
             'python2-notify: desktop notifications'
-            'python2-pyopenssl' enable ssl in sickbeard')
+            'python2-pyopenssl: enable ssl in sickbeard')
 install=sickbeard.install
 conflicts=('sickbeard')
 backup=('etc/sickbeard.conf')
