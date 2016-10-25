@@ -1,4 +1,4 @@
 sickbeard-archlinux
 ===================
 
-Custom source parckage for sickbeard
+Custom source parckage for sickbeard (deprecated)
